@@ -1,0 +1,24 @@
+{
+  "projetos": [
+    {
+      "id": 1,
+      "nome": "Projeto 1",
+      "descricao": "Descrição do projeto 1"
+    },
+    {
+      "id": 2,
+      "nome": "Projeto 2",
+      "descricao": "Descrição do projeto 2"
+    },
+    {
+      "id": 3,
+      "nome": "Projeto 3",
+      "descricao": "Descrição do projeto 3"
+    },
+    {
+      "nome": "Projeto 4",
+      "descricao": "Descrição Projeto 4",
+      "id": 4
+    }
+  ]
+}
