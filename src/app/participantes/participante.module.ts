@@ -4,11 +4,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
-import { CadastroProjetosComponent } from './cadastro-projeto/cadastro-projetos.component';
+import { CadastroParticipanteComponent } from './cadastro-participante/cadastro-participante.component';
 import { MaterialModule } from '../shared/material/material.module';
-import { ListagemProjetosComponent } from './listagem-projetos/listagem-projetos.component';
 import { CamposModule } from '../shared/components/campos/campos.module';
-import { VisualizarProjetosComponent } from './visualizar-projetos/visualizar-projetos.component';
+import { ListagemParticipanteComponent } from './listagem-participantes/listagem-participante.component';
 
 
 @NgModule({
@@ -20,6 +19,6 @@ import { VisualizarProjetosComponent } from './visualizar-projetos/visualizar-pr
     CamposModule,
     InfiniteScrollModule
   ],
-  declarations: [CadastroProjetosComponent, ListagemProjetosComponent, VisualizarProjetosComponent]
+  declarations: [CadastroParticipanteComponent, ListagemParticipanteComponent]
 })
-export class ProjetosModule { }
+export class ParticipantesModule { }

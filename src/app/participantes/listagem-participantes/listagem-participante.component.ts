@@ -1,26 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { Participante } from 'src/app/shared/models/participante';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { ConfigPrams } from 'src/app/shared/models/config-prams';
 import { Router } from '@angular/router';
 import { debounceTime } from 'rxjs/operators';
-import { ProjetosService } from 'src/app/core/projetos.service';
-import { Projeto } from 'src/app/shared/models/projeto';
-import { ConfigPrams } from 'src/app/shared/models/config-prams';
+import { ParticipantesService } from 'src/app/core/participantes.service';
 
 @Component({
-  selector: 'dio-listagem-projetos',
-  templateUrl: './listagem-projetos.component.html',
-  styleUrls: ['./listagem-projetos.component.scss']
+  selector: 'app-listagem-participante',
+  templateUrl: './listagem-participante.component.html',
+  styleUrls: ['./listagem-participante.component.scss']
 })
-export class ListagemProjetosComponent implements OnInit {
- 
+
+export class ListagemParticipanteComponent implements OnInit {
+
   config: ConfigPrams = {
     pagina: 0, 
     limite: 4
   };
-  projetos: Projeto[] = [];
+  participantes: Participante[] = [];
   filtrosListagem: FormGroup;
 
-  constructor(private projetosService: ProjetosService,
+  constructor(private participantesService: ParticipantesService,
               private fb: FormBuilder,
               private router: Router) { }
 
@@ -38,11 +39,11 @@ export class ListagemProjetosComponent implements OnInit {
     });
 
   
-    this.listarProjetos();
+    this.listarParticipantes();
   }
 
   onScroll(): void {
-    this.listarProjetos();
+    this.listarParticipantes();
   }
 
   abrir(id: number): void {
@@ -50,15 +51,16 @@ export class ListagemProjetosComponent implements OnInit {
     this.router.navigateByUrl('/lista/cadastrar/' + id);
   }
 
-  private listarProjetos(): void {
+  private listarParticipantes(): void {
     this.config.pagina++;
-    this.projetosService.listar()
-      .subscribe((projetos: Projeto[]) => this.projetos.push(...projetos));
+    this.participantesService.listar()
+      .subscribe((participantes: Participante[]) => this.participantes.push(...participantes));
   }
 
   private resetarConsulta(): void {
     this.config.pagina = 0;
-    this.projetos = [];
-    this.listarProjetos();
+    this.participantes = [];
+    this.listarParticipantes();
   }
+
 }

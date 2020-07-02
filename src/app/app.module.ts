@@ -12,25 +12,28 @@ import { MaterialModule } from './shared/material/material.module';
 import { TopoComponent } from './shared/components/topo/topo.component';
 import { RodapeComponent } from './shared/components/rodape/rodape.component';
 import { AlertaComponent } from './shared/components/alerta/alerta.component';
+import { AuthGuard } from './guards/guard';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TopoComponent,
-    RodapeComponent,
-    AlertaComponent,
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    LayoutModule,
-    MaterialModule,
-    AppRoutingModule
-  ],
-  entryComponents: [AlertaComponent],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt' }],
-  bootstrap: [AppComponent]
+   declarations: [      
+      AppComponent,
+      TopoComponent,
+      RodapeComponent,
+      AlertaComponent,  
+   ],
+   imports: [
+      BrowserModule,
+      BrowserAnimationsModule,
+      HttpClientModule,
+      LayoutModule,
+      MaterialModule,
+      AppRoutingModule
+   ],
+   entryComponents: [
+      AlertaComponent
+   ],
+   providers: [AuthGuard],
+   bootstrap: [AppComponent]
 })
 export class AppModule { }

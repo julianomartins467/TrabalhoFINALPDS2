@@ -2,9 +2,13 @@
   <mat-sidenav #sidenav class="sidenav" fixedInViewport="true" >
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list (click)="closeSideNav()">
-      <a mat-list-item [routerLink]="['/projetos']">Inicial</a>
+      <a mat-list-item [routerLink]="['/lista']">Projetos</a>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLink]="['/projetos/cadastro']">Cadastrar novo Projeto</a>
+      <a mat-list-item [routerLink]="['/lista/cadastrar']">Novo Projeto</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item [routerLink]="['/participante']">Participante</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item [routerLink]="['/participante/cadastrar']">Novo Participante</a>
       <mat-divider></mat-divider>
     </mat-nav-list>
   </mat-sidenav>

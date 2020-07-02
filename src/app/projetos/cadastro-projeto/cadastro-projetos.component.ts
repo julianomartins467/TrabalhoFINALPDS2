@@ -74,7 +74,7 @@ export class CadastroProjetosComponent implements OnInit {
     } as Projeto;
   }
 
-  private salvar(projeto: Projeto): void {
+  private salvar(projeto: Projeto): void {    
     this.projetoService.salvar(projeto).subscribe(() => {
       const config = {
         data: {
@@ -87,7 +87,7 @@ export class CadastroProjetosComponent implements OnInit {
       const dialogRef = this.dialog.open(AlertaComponent, config);
       dialogRef.afterClosed().subscribe((opcao: boolean) => {
         if (opcao) {
-          this.router.navigateByUrl('projetos');
+          this.router.navigateByUrl('lista');
         } else {
           this.reiniciarForm();
         }
@@ -106,7 +106,7 @@ export class CadastroProjetosComponent implements OnInit {
     });
   }
 
-  private editar(projeto: Projeto): void {
+  private editar(projeto: Projeto): void {   
     this.projetoService.editar(projeto).subscribe(() => {
       const config = {
         data: {
@@ -114,10 +114,10 @@ export class CadastroProjetosComponent implements OnInit {
           btnSucesso: 'Ir para a listagem',
         } as Alerta
       };
-      const dialogRef = this.dialog.open(AlertaComponent, config);
-      dialogRef.afterClosed().subscribe(() => this.router.navigateByUrl('projetos'));
-    },
-    () => {
+      //const dialogRef = this.dialog.open(AlertaComponent, config);
+      //dialogRef.afterClosed().subscribe(() => this.router.navigateByUrl('lista'));
+    }, (error) => {
+      console.log(error);
       const config = {
         data: {
           titulo: 'Erro ao editar o registro!',
@@ -127,7 +127,8 @@ export class CadastroProjetosComponent implements OnInit {
         } as Alerta
       };
       this.dialog.open(AlertaComponent, config);
-    });
+    }
+    );
   }
 
 }
